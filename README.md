@@ -106,6 +106,7 @@ This project follows the **Page Object Model (POM)** design pattern to improve *
 ### Implemented Page Classes  
 
 | Page Class        | Description              | Key Methods |
+| :--- | :--- | :--- |
 |-------------------|--------------------------|-------------|
 | **LoginPage.java** | Handles login functionality | - `enterUsername(String username)` <br> - `enterPassword(String password)` <br> - `clickLogin()` <br> - `getInvalidMessageText()` / `getEmptyMessageText()` <br> - `isAtAccountsOverview()` <br> - `clickLogout()` |
 | **NewAccountPage.java** | Handles opening new accounts | - `navigateToOpenNewAccount()` <br> - `selectAccountType(String type)` <br> - `selectFromAccount(String fromAccount)` <br> - `createAccount()` |

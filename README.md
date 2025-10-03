@@ -61,33 +61,32 @@ mvn test
 ---
 
 ## Project Structure
-ParaBank/
-│
-├── .idea/ # IntelliJ IDEA project files
-├── .mvn/ # Maven wrapper files
-├── allure-report/ # Generated Allure reports
-├── allure-results/ # Allure test results
-├── screenshots/ # Screenshots captured during test execution
-├── src/
-│ ├── main/
-│ │ ├── java/
-│ │ │ ├── Pages/ # Page Object classes for different web pages
-│ │ │ └── utils/ # Utility classes (e.g., ExcelReader, ConfigReader, BrowserUtils)
-│ │ └── resources/ # Test data files (Excel, CSV, JSON, Properties)
-│ └── test/
-│ └── java/
-│ └── Tests/ # Test classes for each scenario
-├── target/ # Maven build output
-├── .gitignore # Git ignore file
-├── pom.xml # Maven dependencies and plugins
-└── testng.xml # TestNG suite configuration
+**ParaBank/**
+* **.idea/**: IntelliJ IDEA project files
+* **.mvn/**: Maven wrapper files
+* **allure-results/**: Allure test results (Generated after test execution)
+* **allure-report/**: Generated Allure reports
+* **screenshots/**: Screenshots captured during test execution
+* **src/**
+    * **main/**
+        * **java/**
+            * **Pages/**: Page Object Model classes for different web pages
+            * **utils/**: Utility classes (e.g., ExcelReader, ConfigReader, BrowserUtils)
+    * **resources/**: Test data files (Excel, CSV, JSON, Properties) for Data-Driven Testing (DDT)
+    * **test/**
+        * **java/**
+            * **Tests/**: Test classes for each scenario
+* **target/**: Maven build output
+* **.gitignore**: Git Ignore file
+* **pom.xml**: Maven dependencies and plugins
+* **testng.xml**: TestNG suite configuration
 
 
 ### Notes:
-- **Pages/** contains Page Object Model classes for all web pages.  
-- **utils/** contains reusable helper classes for reading test data, browser actions, and screenshots.  
-- **resources/** stores all test data (Excel, CSV, JSON, or Properties files) for Data-Driven Testing (DDT).  
-- **Tests/** contains test classes for Login, Open New Account, Transfer Funds, and Bill Pay scenarios.  
-- **screenshots/** stores images captured during test failures for debugging.  
-- **allure-results/** and **allure-report/** are generated automatically when running Allure reports.
+- **Pages:** contains Page Object Model classes for all web pages.  
+- **utils:** contains reusable helper classes for reading test data, browser actions, and screenshots.  
+- **resources:** stores all test data (Excel, CSV, JSON, or Properties files) for Data-Driven Testing (DDT).  
+- **Tests:** contains test classes for Login, Open New Account, Transfer Funds, and Bill Pay scenarios.  
+- **screenshots:** stores images captured during test failures for debugging.  
+- **allure-results:** and **allure-report/** are generated automatically when running Allure reports.
 

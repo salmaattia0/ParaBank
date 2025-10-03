@@ -95,4 +95,23 @@ We utilize various file formats to demonstrate robust data handling capabilities
 | **JSON** | Stores complex, structured, array-based data, excellent for iteration and testing multiple test cases. | Funds Transfer Validation |
 | **Excel (XLSX)** | Stores large or complex tabular data, used when dealing with numerous columns or test cases. | Bill Pay Functionality |
 
+---
+
+## Pages (Page Object Model)
+This project follows the **Page Object Model (POM)** design pattern to improve **readability, maintainability, and reusability** of test code.
+- Each page in the ParaBank application is represented as a **Java class**.  
+- Classes contain **locators** (to identify elements) and **methods** (to interact with them).  
+- This allows tests to call simple methods instead of duplicating locators everywhere.  
+
+### Implemented Page Classes  
+
+| Page Class        | Description              | Key Methods |
+|-------------------|--------------------------|-------------|
+| **LoginPage.java** | Handles login functionality | - `enterUsername(String username)` <br> - `enterPassword(String password)` <br> - `clickLogin()` <br> - `getInvalidMessageText()` / `getEmptyMessageText()` <br> - `isAtAccountsOverview()` <br> - `clickLogout()` |
+| **NewAccountPage.java** | Handles opening new accounts | - `navigateToOpenNewAccount()` <br> - `selectAccountType(String type)` <br> - `selectFromAccount(String fromAccount)` <br> - `createAccount()` |
+| **TransferPage.java** | Handles fund transfers | - `navigateToTransferPage()` <br> - `enterAmount(String amount)` <br> - `selectFromAccount(String fromAccount)` <br> - `selectToAccount(String toAccount)` <br> - `clickTransfer()` <br> - `getConfirmationMessage()` |
+| **BillPage.java** | Handles bill payments | - `navigateToBillPay()` <br> - `enterPayeeDetails(...)` (name, address, city, state, zip, phone, account, amount) <br> - `sendPayment()` <br> - `getConfirmationMessage()` <br> - `getErrorMessage()` |
+
+---
+
 

@@ -120,9 +120,9 @@ They handle reading external data, managing configurations, and providing reusab
 
 | Utility Class        | Purpose | Key Features |
 | :--- | :--- | :--- |
-| **PropertiesReader** | Reads configuration values from `.properties` files | Load properties (e.g., URL, credentials) and fetch values using `getProperty(key)` |
-| **CSVReader**        | Reads data from `.csv` files | Provides data for TestNG `@DataProvider` (e.g., New Account test scenarios) |
-| **JSONReader**       | Reads structured data from `.json` files | Uses Gson to parse JSON and supply objects for TestNG `@DataProvider` (e.g., Transfer Funds test scenarios) |
-| **ExcelReader**      | Reads test data from `.xlsx` files | Uses Apache POI to extract rows/columns for DDT (e.g., Bill Payment test scenarios) |
+| **PropertiesReader** | Reads configuration values from `.properties` files | Load properties (credentials) and fetch values using `getProperty(key)` |
+| **CSVReader**        | Reads data from `.csv` files | Provides data for TestNG `@DataProvider` (New Account test scenarios) |
+| **JSONReader**       | Reads structured data from `.json` files | Uses Gson to parse JSON and supply objects for TestNG `@DataProvider` (Transfer Funds test scenarios) |
+| **ExcelReader**      | Reads test data from `.xlsx` files | Uses Apache POI to extract rows/columns for DDT (Bill Payment test scenarios) |
 
 ---

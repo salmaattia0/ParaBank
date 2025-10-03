@@ -137,3 +137,22 @@ The **BaseTest.java** class is responsible for setting up and tearing down the W
 - Ensures that the browser is closed after each test to avoid resource leaks.
 
 ---
+
+## How to Add New Tests
+
+To add new automated tests for the ParaBank application, follow these steps:
+
+### Steps:
+1. **Create a new test class** inside the `tests/` directory.  
+   - Extend from `BaseTest` to inherit WebDriver setup and teardown.  
+
+2. **Create or update a Page Class** inside the `pages/` directory.  
+   - Each page object should encapsulate locators and methods for interacting with page elements.  
+
+3. **Add Test Data** inside the `resources/` directory.  
+   - Use `.properties`, `.csv`, `.json`, or `.xlsx` files depending on the test.  
+   - Utilities like `PropertiesReader`, `CSVReader`, `JSONReader`, and `ExcelReader` handle reading these files.  
+
+4. **Update `testng.xml`** if you want the new test class to be included in the test suite execution.  
+
+---

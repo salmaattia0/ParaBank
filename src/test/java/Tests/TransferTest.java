@@ -11,8 +11,8 @@ public class TransferTest extends BaseTest {
     @Test(dataProvider = "transferData", dataProviderClass = JSONReader.class)
     public void transfer(JSONReader.TransferData data) {
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.enterUsername("oliviaB03");
-        loginPage.enterPassword("MyPass2025");
+        loginPage.enterUsername("johnD01");
+        loginPage.enterPassword("Pass1234");
         loginPage.clickLogin();
 
         TransferPage transferPage = new TransferPage(driver);

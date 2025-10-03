@@ -11,8 +11,8 @@ public class BillTest extends BaseTest {
     @Test
     public void payBillTest() {
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.enterUsername("oliviaB03");
-        loginPage.enterPassword("MyPass2025");
+        loginPage.enterUsername("johnD01");
+        loginPage.enterPassword("Pass1234");
         loginPage.clickLogin();
 
         BillPage billPayPage = new BillPage(driver);

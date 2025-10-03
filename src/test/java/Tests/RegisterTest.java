@@ -10,10 +10,10 @@ public class RegisterTest extends BaseTest {
     public Object[][] getRegistrationData() {
         return new Object[][]{
                 {
-                        "Olivia", "Brown", "789 Pine St", "Houston",
-                        "TX", "77002", "(713) 555-0145", "333-44-5555",
-                        "oliviaB03", "MyPass2025", "MyPass2025"
-                },
+                        "John", "Doe", "123 Main St", "New York",
+                        "NY", "10001", "(212) 555-0123", "111-22-3333",
+                        "johnD01", "Pass1234", "Pass1234"
+                }
         };
     }
 

@@ -10,8 +10,8 @@ public class NewAccountTest extends BaseTest {
     @Test(dataProvider = "openNewAccountData", dataProviderClass = CSVReader.class)
     public void openNewAccountTest(String accountType, String fundingAccount) {
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.enterUsername("oliviaB03");
-        loginPage.enterPassword("MyPass2025");
+        loginPage.enterUsername("johnD01");
+        loginPage.enterPassword("Pass1234");
         loginPage.clickLogin();
 
         NewAccountPage accountPage = new NewAccountPage(driver);

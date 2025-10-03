@@ -36,3 +36,8 @@ The tests ensure the web application functions correctly and handles invalid inp
 2. Clone the repository:  
 ```bash
 git clone https://github.com/yourusername/ParaBank.git
+bash```
+
+3. Navigate to the project directory and install dependencies:  
+```bash
+mvn install

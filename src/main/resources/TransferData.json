@@ -1,0 +1,22 @@
+[
+  {
+    "fromAccount": "12345",
+    "toAccount": "67890",
+    "amount": "200"
+  },
+  {
+    "fromAccount": "12345",
+    "toAccount": "67890",
+    "amount": "0"
+  },
+  {
+    "fromAccount": "12345",
+    "toAccount": "67890",
+    "amount": "-50"
+  },
+  {
+    "fromAccount": "11111",
+    "toAccount": "22222",
+    "amount": "999999"
+  }
+]

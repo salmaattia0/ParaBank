@@ -1,0 +1,9 @@
+accountType,fundingAccount,expectedResult
+Checking,12345,SUCCESS
+Savings,12345,SUCCESS
+,12345,ERROR
+InvalidType,12345,ERROR
+Checking,,ERROR
+Savings,99999,ERROR
+Checking,ClosedAccount,ERROR
+Checking,InsufficientBalance,ERROR

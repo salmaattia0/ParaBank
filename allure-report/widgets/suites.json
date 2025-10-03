@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"a4294e48bee34f9389d3fb08b389ed12","name":"Para Bank Test Suite","statistic":{"failed":1,"broken":20,"skipped":0,"passed":0,"unknown":0,"total":21}},{"uid":"8399274b4bb69ec8699907dd6ef7de4e","name":"Default Suite","statistic":{"failed":0,"broken":36,"skipped":0,"passed":1,"unknown":0,"total":37}}]}

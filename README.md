@@ -83,9 +83,16 @@ mvn test
   
 ---
 
-##Data Resources for Data-Driven Testing (DDT)
+## Data Resources for Data-Driven Testing (DDT)
 his project is configured to use Data-Driven Testing (DDT), allowing test scenarios to be executed multiple times using different sets of input values read from external files. All data files are stored under the `src/resources/` directory.
 
 We utilize various file formats to demonstrate robust data handling capabilities:
 
-File Type	| Purpose | Scenario Example
+| File Type | Purpose | Scenario Example |
+| :--- | :--- | :--- |
+| **Properties** | Stores key-value pairs, typically for static configurations or simple, fixed data sets. | Login Credentials |
+| **CSV** | Stores tabular data with a simple structure, ideal for varied input combinations. | Open New Account |
+| **JSON** | Stores complex, structured, array-based data, excellent for iteration and testing multiple test cases. | Funds Transfer Validation |
+| **Excel (XLSX)** | Stores large or complex tabular data, used when dealing with numerous columns or test cases. | Bill Pay Functionality |
+
+

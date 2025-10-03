@@ -139,7 +139,6 @@ The **BaseTest.java** class is responsible for setting up and tearing down the W
 ---
 
 ## How to Add New Tests
-
 To add new automated tests for the ParaBank application, follow these steps:
 
 ### Steps:
@@ -154,5 +153,76 @@ To add new automated tests for the ParaBank application, follow these steps:
    - Utilities like `PropertiesReader`, `CSVReader`, `JSONReader`, and `ExcelReader` handle reading these files.  
 
 4. **Update `testng.xml`** if you want the new test class to be included in the test suite execution.  
+
+---
+
+## Preconditions and Test Scenarios
+
+### Precondition: Account Registration
+Before executing any test scenarios, a valid user account must exist.
+
+**Steps:**
+1. Navigate to ParaBank homepage.  
+2. Click **Register**.  
+3. Fill all required fields:  
+   - First Name, Last Name  
+   - Address, City, State, Zip Code  
+   - Phone Number, SSN  
+   - Username, Password, Confirm Password  
+4. Click **Register**.  
+5. Validate confirmation message:  
+   _“Your account was created successfully. You are now logged in.”_  
+6. Log out to prepare for subsequent scenarios.  
+
+> **Note:** This step is a precondition, not a test case.  
+> User accounts are periodically removed, so automation creates new accounts as needed.  
+
+---
+
+### Test Scenarios
+
+#### **Scenario 1: Login**
+- **Objective:** Verify login functionality with valid and invalid credentials.  
+- **Steps:**
+  1. Navigate to ParaBank login page.  
+  2. Enter username and password.  
+  3. Click **Login**.  
+  4. Validate:  
+     - Successful login → redirected to Accounts Overview.  
+     - Invalid/empty input → proper error messages are shown.  
+
+---
+
+#### **Scenario 2: Open New Account**
+- **Objective:** Verify that a user can open a new account.  
+- **Steps:**
+  1. Login with valid credentials.  
+  2. Navigate to **Open New Account** page.  
+  3. Select account type and funding account.  
+  4. Click **Open New Account**.  
+  5. Validate that new account is created successfully.  
+
+---
+
+#### **Scenario 3: Transfer Funds**
+- **Objective:** Verify that funds can be transferred between accounts.  
+- **Steps:**
+  1. Login with valid credentials.  
+  2. Navigate to **Transfer Funds** page.  
+  3. Enter transfer amount.  
+  4. Select source and destination accounts.  
+  5. Click **Transfer**.  
+  6. Validate confirmation message includes amount, from-account, and to-account.  
+
+---
+
+#### **Scenario 4: Bill Payment**
+- **Objective:** Verify that bills can be paid using valid payee details.  
+- **Steps:**
+  1. Login with valid credentials.  
+  2. Navigate to **Bill Pay** page.  
+  3. Enter all payee details (name, address, city, state, zip, phone, account, amount).  
+  4. Click **Send Payment**.  
+  5. Validate confirmation message indicates bill payment completion.  
 
 ---

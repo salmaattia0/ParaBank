@@ -80,13 +80,12 @@ mvn test
 * **.gitignore**: Git Ignore file
 * **pom.xml**: Maven dependencies and plugins
 * **testng.xml**: TestNG suite configuration
+  
+---
 
+##Data Resources for Data-Driven Testing (DDT)
+his project is configured to use Data-Driven Testing (DDT), allowing test scenarios to be executed multiple times using different sets of input values read from external files. All data files are stored under the `src/resources/` directory.
 
-### Notes:
-- **Pages:** contains Page Object Model classes for all web pages.  
-- **utils:** contains reusable helper classes for reading test data, browser actions, and screenshots.  
-- **resources:** stores all test data (Excel, CSV, JSON, or Properties files) for Data-Driven Testing (DDT).  
-- **Tests:** contains test classes for Login, Open New Account, Transfer Funds, and Bill Pay scenarios.  
-- **screenshots:** stores images captured during test failures for debugging.  
-- **allure-results:** and **allure-report/** are generated automatically when running Allure reports.
+We utilize various file formats to demonstrate robust data handling capabilities:
 
+File Type	| Purpose | Scenario Example

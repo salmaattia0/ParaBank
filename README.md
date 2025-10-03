@@ -45,7 +45,6 @@ mvn install
 ---
 
 ## Test Suite Structure
-
 The project uses **TestNG** to organize and run test scenarios. The `testng.xml` file defines the test suite and the individual test classes:
 - **Login Verification** → `Tests.LoginTest`  
 - **Open New Account** → `Tests.NewAccountTest`  
@@ -55,9 +54,30 @@ The project uses **TestNG** to organize and run test scenarios. The `testng.xml`
 ---
 
 ## Running Tests
-
 To execute all test scenarios:
 ```
 mvn test
 ```
 ---
+
+## Project Structure
+ParaBank/
+│
+├── .idea/ # IntelliJ IDEA project files
+├── .mvn/ # Maven wrapper files
+├── allure-report/ # Generated Allure reports
+├── allure-results/ # Allure test results
+├── screenshots/ # Screenshots captured during test execution
+├── src/
+│ ├── main/
+│ │ ├── java/
+│ │ │ ├── Pages/ # Page Object classes for different web pages
+│ │ │ └── utils/ # Utility classes (e.g., ExcelReader, ConfigReader, BrowserUtils)
+│ │ └── resources/ # Test data files (Excel, CSV, JSON, Properties)
+│ └── test/
+│ └── java/
+│ └── Tests/ # Test classes for each scenario
+├── target/ # Maven build output
+├── .gitignore # Git ignore file
+├── pom.xml # Maven dependencies and plugins
+└── testng.xml # TestNG suite configuration

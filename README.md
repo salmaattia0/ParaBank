@@ -15,7 +15,7 @@ The tests ensure the web application functions correctly and handles invalid inp
 ---
 
 ## Technologies & Dependencies
-The `pom.xml` file defines that your project is a Maven-based Java project using Selenium, TestNG, Allure reports, and libraries for CSV, Excel, and JSON handling.
+The `pom.xml` file defines that your project is a Maven-based Java project using Selenium, TestNG, Allure reports, and libraries for CSV, Excel, and JSON handling:
 - **Java 18** – programming language  
 - **Maven** – dependency management and build automation  
 - **Selenium Java 4.34.0** – web automation  
@@ -42,17 +42,14 @@ git clone https://github.com/salmaattia0/ParaBank.git
 ```
 mvn install
 ```
+
 ## Test Suite Structure
 
 The project uses **TestNG** to organize and run test scenarios. The `testng.xml` file defines the test suite and the individual test classes:
-
 - **Login Verification** → `Tests.LoginTest`  
 - **Open New Account** → `Tests.NewAccountTest`  
 - **Transfer Funds Between Accounts** → `Tests.TransferTest`  
-- **Bill Pay** → `Tests.BillTest`  
-
-This structure allows you to run the full suite or specific scenarios independently.
-
+- **Bill Pay** → `Tests.BillTest`
 ---
 
 ## Running Tests

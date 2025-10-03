@@ -34,9 +34,7 @@ The tests ensure the web application functions correctly and handles invalid inp
 ## Project Setup
 1. Make sure **Java 18+** and **Maven** are installed.  
 2. Clone the repository:  
-```bash
-git clone https://github.com/yourusername/ParaBank.git
-bash```
+(git clone https://github.com/yourusername/ParaBank.git)
 
 3. Navigate to the project directory and install dependencies:  
 ```bash

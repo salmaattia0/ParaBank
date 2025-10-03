@@ -105,7 +105,7 @@ This project follows the **Page Object Model (POM)** design pattern to improve *
 
 ### Implemented Page Classes:
 
-| Page Class        | Main Purpose              | Key Actions |
+| Page Class        | Purpose              | Key Actions |
 | :--- | :--- | :--- |
 | **LoginPage.java** | User authentication       | Enter credentials, Login, Validate messages, Logout |
 | **NewAccountPage.java** | Open new bank accounts  | Navigate, Select account type, Choose funding account, Create account |
@@ -119,7 +119,6 @@ This project includes several **utility classes** to support data-driven testing
 They handle reading external data, managing configurations, and providing reusable helpers.  
 
 | Utility Class        | Purpose | Key Features |
-|-----------------------|---------|--------------|
 | :--- | :--- | :--- |
 | **PropertiesReader** | Reads configuration values from `.properties` files | Load properties (e.g., URL, credentials) and fetch values using `getProperty(key)` |
 | **CSVReader**        | Reads data from `.csv` files | Provides data for TestNG `@DataProvider` (e.g., New Account test scenarios) |

@@ -126,3 +126,14 @@ They handle reading external data, managing configurations, and providing reusab
 | **ExcelReader**      | Reads test data from `.xlsx` files | Uses Apache POI to extract rows/columns for DDT (Bill Payment test scenarios) |
 
 ---
+
+## Test Base
+The **BaseTest.java** class is responsible for setting up and tearing down the WebDriver before and after each test case.  
+
+### Key Responsibilities:
+- Initializes the **Firefox WebDriver**.
+- Maximizes the browser window and navigates to the ParaBank URL.
+- Captures a **screenshot** automatically when a test fails and stores it in the `./screenshots/` directory.
+- Ensures that the browser is closed after each test to avoid resource leaks.
+
+---

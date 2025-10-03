@@ -223,6 +223,17 @@ Before executing any test scenarios, a valid user account must exist.
   2. Navigate to **Bill Pay** page.  
   3. Enter all payee details (name, address, city, state, zip, phone, account, amount).  
   4. Click **Send Payment**.  
-  5. Validate confirmation message indicates bill payment completion.  
-
+  5. Validate confirmation message indicates bill payment completion.
+     
 ---
+
+## Allure Reports  
+This project integrates **Allure Reports** for generating interactive and detailed test execution reports.  
+
+### Generate the Report
+After running the tests with Maven, execute the following command to generate and open the Allure report:  
+
+```
+allure serve -h localhost
+```
+

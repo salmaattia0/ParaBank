@@ -124,6 +124,5 @@ They handle reading external data, managing configurations, and providing reusab
 | **CSVReader**        | Reads data from `.csv` files | Provides data for TestNG `@DataProvider` (e.g., New Account test scenarios) |
 | **JSONReader**       | Reads structured data from `.json` files | Uses Gson to parse JSON and supply objects for TestNG `@DataProvider` (e.g., Transfer Funds test scenarios) |
 | **ExcelReader**      | Reads test data from `.xlsx` files | Uses Apache POI to extract rows/columns for DDT (e.g., Bill Payment test scenarios) |
-| **BrowserUtils** (planned) | Reusable browser helper methods | Common waits, scrolling, switching tabs/windows |
-| **ScreenshotUtils** (planned) | Capture screenshots on failure | Store screenshots automatically for debugging |
 
+---

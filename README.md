@@ -103,9 +103,7 @@ This project follows the **Page Object Model (POM)** design pattern to improve *
 - Classes contain **locators** (to identify elements) and **methods** (to interact with them).  
 - This allows tests to call simple methods instead of duplicating locators everywhere.  
 
-### Implemented Page Classes  
-
-### Implemented Page Classes  
+### Implemented Page Classes:
 
 | Page Class        | Main Purpose              | Key Actions |
 | :--- | :--- | :--- |
@@ -114,7 +112,19 @@ This project follows the **Page Object Model (POM)** design pattern to improve *
 | **TransferPage.java** | Transfer funds between accounts | Navigate, Enter amount, Select accounts, Confirm transfer |
 | **BillPage.java** | Pay bills to different payees | Navigate, Enter payee details, Send payment, Validate confirmation/error |
 
-
 ---
 
+## Utilities  
+This project includes several **utility classes** to support data-driven testing and improve test execution.  
+They handle reading external data, managing configurations, and providing reusable helpers.  
+
+| Utility Class        | Purpose | Key Features |
+|-----------------------|---------|--------------|
+| :--- | :--- | :--- |
+| **PropertiesReader** | Reads configuration values from `.properties` files | Load properties (e.g., URL, credentials) and fetch values using `getProperty(key)` |
+| **CSVReader**        | Reads data from `.csv` files | Provides data for TestNG `@DataProvider` (e.g., New Account test scenarios) |
+| **JSONReader**       | Reads structured data from `.json` files | Uses Gson to parse JSON and supply objects for TestNG `@DataProvider` (e.g., Transfer Funds test scenarios) |
+| **ExcelReader**      | Reads test data from `.xlsx` files | Uses Apache POI to extract rows/columns for DDT (e.g., Bill Payment test scenarios) |
+| **BrowserUtils** (planned) | Reusable browser helper methods | Common waits, scrolling, switching tabs/windows |
+| **ScreenshotUtils** (planned) | Capture screenshots on failure | Store screenshots automatically for debugging |
 

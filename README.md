@@ -105,13 +105,15 @@ This project follows the **Page Object Model (POM)** design pattern to improve *
 
 ### Implemented Page Classes  
 
-| Page Class        | Description              | Key Methods |
+### Implemented Page Classes  
+
+| Page Class        | Main Purpose              | Key Actions |
 | :--- | :--- | :--- |
-|-------------------|--------------------------|-------------|
-| **LoginPage.java** | Handles login functionality | - `enterUsername(String username)` <br> - `enterPassword(String password)` <br> - `clickLogin()` <br> - `getInvalidMessageText()` / `getEmptyMessageText()` <br> - `isAtAccountsOverview()` <br> - `clickLogout()` |
-| **NewAccountPage.java** | Handles opening new accounts | - `navigateToOpenNewAccount()` <br> - `selectAccountType(String type)` <br> - `selectFromAccount(String fromAccount)` <br> - `createAccount()` |
-| **TransferPage.java** | Handles fund transfers | - `navigateToTransferPage()` <br> - `enterAmount(String amount)` <br> - `selectFromAccount(String fromAccount)` <br> - `selectToAccount(String toAccount)` <br> - `clickTransfer()` <br> - `getConfirmationMessage()` |
-| **BillPage.java** | Handles bill payments | - `navigateToBillPay()` <br> - `enterPayeeDetails(...)` (name, address, city, state, zip, phone, account, amount) <br> - `sendPayment()` <br> - `getConfirmationMessage()` <br> - `getErrorMessage()` |
+| **LoginPage.java** | User authentication       | Enter credentials, Login, Validate messages, Logout |
+| **NewAccountPage.java** | Open new bank accounts  | Navigate, Select account type, Choose funding account, Create account |
+| **TransferPage.java** | Transfer funds between accounts | Navigate, Enter amount, Select accounts, Confirm transfer |
+| **BillPage.java** | Pay bills to different payees | Navigate, Enter payee details, Send payment, Validate confirmation/error |
+
 
 ---
 

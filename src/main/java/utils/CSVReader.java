@@ -21,15 +21,15 @@ public class CSVReader {
 
         while ((line = br.readLine()) != null) {
             if (firstLine) {
-                firstLine = false;
+                firstLine = false; // skip header
                 continue;
             }
             if (line.trim().isEmpty()) continue;
 
             String[] values = line.split(",");
-            if (values.length < 3) continue;
+            if (values.length < 2) continue;
 
-            data.add(new Object[]{values[0], values[1], values[2]});
+            data.add(new Object[]{values[0].trim(), values[1].trim()});
         }
         br.close();
 

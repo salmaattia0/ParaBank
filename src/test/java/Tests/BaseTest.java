@@ -20,7 +20,7 @@ public class BaseTest {
     public void setup() {
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
-        driver.get("https://parabank.parasoft.com");
+        driver.get("https://parabank.parasoft.com/");
     }
 
     @AfterMethod

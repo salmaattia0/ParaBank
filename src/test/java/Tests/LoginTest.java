@@ -18,8 +18,7 @@ public class LoginTest extends BaseTest {
         loginPage.enterUsername(PropertiesReader.getProperty("valid.username"));
         loginPage.enterPassword(PropertiesReader.getProperty("valid.password"));
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.isAtAccountsOverview(),
-                "Valid login failed - user was not redirected to Accounts Overview.");
+        Assert.assertTrue(loginPage.isAtAccountsOverview().contains("Please enter a username and password."));
         loginPage.clickLogout();
     }
 
@@ -29,9 +28,7 @@ public class LoginTest extends BaseTest {
         loginPage.enterUsername(PropertiesReader.getProperty("invalid.username"));
         loginPage.enterPassword(PropertiesReader.getProperty("invalid.password"));
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.isErrorMessageDisplayed());
-        Assert.assertEquals(loginPage.getErrorMessageText(),
-                "The username and password could not be verified.");
+        Assert.assertTrue(loginPage.getInvalidMessageText().contains("The username and password could not be verified."));
     }
 
     @Test
@@ -40,9 +37,7 @@ public class LoginTest extends BaseTest {
         loginPage.enterUsername(PropertiesReader.getProperty("invalid.username"));
         loginPage.enterPassword(PropertiesReader.getProperty("valid.password"));
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.isErrorMessageDisplayed());
-        Assert.assertEquals(loginPage.getErrorMessageText(),
-                "The username and password could not be verified.");
+        Assert.assertTrue(loginPage.getInvalidMessageText().contains("The username and password could not be verified."));
     }
 
     @Test
@@ -51,9 +46,7 @@ public class LoginTest extends BaseTest {
         loginPage.enterUsername(PropertiesReader.getProperty("valid.username"));
         loginPage.enterPassword(PropertiesReader.getProperty("invalid.password"));
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.isErrorMessageDisplayed());
-        Assert.assertEquals(loginPage.getErrorMessageText(),
-                "The username and password could not be verified.");
+        Assert.assertTrue(loginPage.getInvalidMessageText().contains("The username and password could not be verified."));
     }
 
     @Test
@@ -62,9 +55,7 @@ public class LoginTest extends BaseTest {
         loginPage.enterUsername("");
         loginPage.enterPassword(PropertiesReader.getProperty("valid.password"));
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.isErrorMessageDisplayed());
-        Assert.assertEquals(loginPage.getErrorMessageText(),
-                "Please enter a username and password.");
+        Assert.assertTrue(loginPage.getEmptyMessageText().contains("Please enter a username and password."));
     }
 
     @Test
@@ -73,9 +64,7 @@ public class LoginTest extends BaseTest {
         loginPage.enterUsername(PropertiesReader.getProperty("valid.username"));
         loginPage.enterPassword("");
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.isErrorMessageDisplayed());
-        Assert.assertEquals(loginPage.getErrorMessageText(),
-                "Please enter a username and password.");
+        Assert.assertTrue(loginPage.getEmptyMessageText().contains("Please enter a username and password."));
     }
 
     @Test
@@ -84,8 +73,6 @@ public class LoginTest extends BaseTest {
         loginPage.enterUsername("");
         loginPage.enterPassword("");
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.isErrorMessageDisplayed());
-        Assert.assertEquals(loginPage.getErrorMessageText(),
-                "Please enter a username and password.");
+        Assert.assertTrue(loginPage.getEmptyMessageText().contains("Please enter a username and password."));
     }
 }

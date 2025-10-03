@@ -8,13 +8,12 @@ import Pages.RegisterPage;
 public class RegisterTest extends BaseTest {
     @DataProvider(name = "registrationData")
     public Object[][] getRegistrationData() {
-        return new Object[][] {
+        return new Object[][]{
                 {
-                        "Emma", "Johnson", "123 Oak St", "Austin", "TX", "73301",
-                        "(512) 555-0123", "111-22-3333",
-                        "emmaJ01", "Password123", "Password123"
+                        "Olivia", "Brown", "789 Pine St", "Houston",
+                        "TX", "77002", "(713) 555-0145", "333-44-5555",
+                        "oliviaB03", "MyPass2025", "MyPass2025"
                 },
-
         };
     }
 

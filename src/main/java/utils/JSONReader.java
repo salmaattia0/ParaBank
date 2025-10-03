@@ -22,12 +22,13 @@ public class JSONReader {
     }
 
     @DataProvider(name = "transferData")
-    public Object[][] getTransferFundsData() throws Exception {
+    public static Object[][] getTransferFundsData() throws Exception {
         Gson gson = new Gson();
         Reader reader = new FileReader("src/main/resources/TransferData.json");
 
         Type listType = new TypeToken<List<TransferData>>() {}.getType();
         List<TransferData> dataList = gson.fromJson(reader, listType);
+        reader.close();
 
         Object[][] data = new Object[dataList.size()][1];
         for (int i = 0; i < dataList.size(); i++) {
@@ -36,4 +37,3 @@ public class JSONReader {
         return data;
     }
 }
-

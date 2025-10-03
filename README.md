@@ -42,6 +42,7 @@ git clone https://github.com/salmaattia0/ParaBank.git
 ```
 mvn install
 ```
+---
 
 ## Test Suite Structure
 
@@ -50,6 +51,7 @@ The project uses **TestNG** to organize and run test scenarios. The `testng.xml`
 - **Open New Account** → `Tests.NewAccountTest`  
 - **Transfer Funds Between Accounts** → `Tests.TransferTest`  
 - **Bill Pay** → `Tests.BillTest`
+  
 ---
 
 ## Running Tests
@@ -58,4 +60,4 @@ To execute all test scenarios:
 ```
 mvn test
 ```
-
+---

@@ -1,27 +1,17 @@
 [
   {
-    "fromAccount": "14232",
-    "toAccount": "14232",
     "amount": "200"
   },
   {
-    "fromAccount": "14232",
-    "toAccount": "14343",
     "amount": "500"
   },
   {
-    "fromAccount": "14232",
-    "toAccount": "14343",
     "amount": "0"
   },
   {
-    "fromAccount": "14232",
-    "toAccount": "14898",
     "amount": "-50"
   },
   {
-    "fromAccount": "14343",
-    "toAccount": "14898",
     "amount": "999999"
   }
 ]

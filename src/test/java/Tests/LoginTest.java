@@ -7,72 +7,91 @@ import utils.PropertiesReader;
 
 public class LoginTest extends BaseTest {
 
+    private LoginPage loginPage;
+
     @BeforeClass
-    public void Load() {
+    public void setUp() {
         PropertiesReader.loadProperties("src/main/resources/LoginData.properties");
     }
 
-    @Test
+    @BeforeMethod
+    public void initPage() {
+        loginPage = new LoginPage(driver);
+    }
+
+    @Test(priority = 1)
     public void validLoginTest_AndLogout() {
-        LoginPage loginPage = new LoginPage(driver);
         loginPage.enterUsername(PropertiesReader.getProperty("valid.username"));
         loginPage.enterPassword(PropertiesReader.getProperty("valid.password"));
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.isAtAccountsOverview().contains("Please enter a username and password."));
+
+        String overviewText = loginPage.getAccountOverviewMessage();
+        Assert.assertTrue(overviewText.contains("Accounts Overview"),
+                "Expected 'Accounts Overview' message not found!");
+
         loginPage.clickLogout();
     }
 
-    @Test
+    @Test(priority = 2)
     public void invalidLoginTest_InvalidUsernameAndPassword() {
-        LoginPage loginPage = new LoginPage(driver);
         loginPage.enterUsername(PropertiesReader.getProperty("invalid.username"));
         loginPage.enterPassword(PropertiesReader.getProperty("invalid.password"));
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.getInvalidMessageText().contains("The username and password could not be verified."));
+
+        String errorText = loginPage.getInvalidMessageText();
+        Assert.assertTrue(errorText.contains("The username and password could not be verified."),
+                "Invalid credentials message not displayed!");
     }
 
-    @Test
+    @Test(priority = 3)
     public void invalidLoginTest_InvalidUsernameOnly() {
-        LoginPage loginPage = new LoginPage(driver);
         loginPage.enterUsername(PropertiesReader.getProperty("invalid.username"));
         loginPage.enterPassword(PropertiesReader.getProperty("valid.password"));
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.getInvalidMessageText().contains("The username and password could not be verified."));
+
+        String errorText = loginPage.getInvalidMessageText();
+        Assert.assertTrue(errorText.contains("The username and password could not be verified."),
+                "Invalid username message not displayed!");
     }
 
-    @Test
+    @Test(priority = 4)
     public void invalidLoginTest_InvalidPasswordOnly() {
-        LoginPage loginPage = new LoginPage(driver);
         loginPage.enterUsername(PropertiesReader.getProperty("valid.username"));
         loginPage.enterPassword(PropertiesReader.getProperty("invalid.password"));
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.getInvalidMessageText().contains("The username and password could not be verified."));
+
+        String errorText = loginPage.getInvalidMessageText();
+        Assert.assertTrue(errorText.contains("The username and password could not be verified."),
+                "Invalid password message not displayed!");
     }
 
-    @Test
+    @Test(priority = 5)
     public void invalidLoginTest_EmptyUsername() {
-        LoginPage loginPage = new LoginPage(driver);
         loginPage.enterUsername("");
         loginPage.enterPassword(PropertiesReader.getProperty("valid.password"));
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.getEmptyMessageText().contains("Please enter a username and password."));
+
+        String emptyText = loginPage.getEmptyMessageText();
+        Assert.assertTrue(emptyText.contains("Please enter a username and password."));
     }
 
-    @Test
+    @Test(priority = 6)
     public void invalidLoginTest_EmptyPassword() {
-        LoginPage loginPage = new LoginPage(driver);
         loginPage.enterUsername(PropertiesReader.getProperty("valid.username"));
         loginPage.enterPassword("");
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.getEmptyMessageText().contains("Please enter a username and password."));
+
+        String emptyText = loginPage.getEmptyMessageText();
+        Assert.assertTrue(emptyText.contains("Please enter a username and password."));
     }
 
-    @Test
+    @Test(priority = 7)
     public void invalidLoginTest_EmptyUsernameAndPassword() {
-        LoginPage loginPage = new LoginPage(driver);
         loginPage.enterUsername("");
         loginPage.enterPassword("");
         loginPage.clickLogin();
-        Assert.assertTrue(loginPage.getEmptyMessageText().contains("Please enter a username and password."));
+
+        String emptyText = loginPage.getEmptyMessageText();
+        Assert.assertTrue(emptyText.contains("Please enter a username and password."));
     }
 }

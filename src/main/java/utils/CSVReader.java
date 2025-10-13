@@ -1,7 +1,6 @@
 package utils;
 
 import org.testng.annotations.DataProvider;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -20,19 +19,19 @@ public class CSVReader {
         boolean firstLine = true;
 
         while ((line = br.readLine()) != null) {
-            if (firstLine) {
-                firstLine = false; // skip header
+            if (firstLine) { // skip header
+                firstLine = false;
                 continue;
             }
             if (line.trim().isEmpty()) continue;
 
             String[] values = line.split(",");
-            if (values.length < 2) continue;
+            String accountType = values[0].trim();
 
-            data.add(new Object[]{values[0].trim(), values[1].trim()});
+            data.add(new Object[]{accountType});
         }
-        br.close();
 
+        br.close();
         return data.iterator();
     }
 }

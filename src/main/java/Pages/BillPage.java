@@ -3,10 +3,16 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class BillPage {
 
     private WebDriver driver;
+    private WebDriverWait wait;
 
     private By billPayLink = By.xpath("//a[text()='Bill Pay']");
     private By payeeName = By.xpath("//input[@name='payee.name']");
@@ -18,20 +24,24 @@ public class BillPage {
     private By payeeAccount = By.xpath("//input[@name='payee.accountNumber']");
     private By confirmAcc = By.xpath("//input[@name='verifyAccount']");
     private By amount = By.xpath("//input[@name='amount']");
+    private By fromAccountDropdown = By.xpath("//select[@name='fromAccountId']");
     private By clickSend = By.xpath("//input[@value='Send Payment']");
-    private By successMessage = By.xpath("//h1[contains(text(),'Bill Payment Complete')]");
-    private By errorMessage = By.xpath("//span[@class='error' or contains(text(),'required') or contains(text(),'Invalid')]");
+    private By successMessage = By.xpath("//h1[text()='Bill Payment Complete']");
 
     public BillPage(WebDriver driver) {
         this.driver = driver;
     }
 
     public void navigateToBillPay() {
-        driver.findElement(billPayLink).click();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement billPay = wait.until(
+                ExpectedConditions.elementToBeClickable(billPayLink)
+        );
+        billPay.click();
     }
 
     public void enterPayeeDetails(String name, String address, String city, String state,
-                                  String zip, String phone, String acc, String amountValue) {
+                                  String zip, String phone, String acc) {
         driver.findElement(payeeName).clear();
         driver.findElement(payeeName).sendKeys(name);
 
@@ -55,24 +65,36 @@ public class BillPage {
 
         driver.findElement(confirmAcc).clear();
         driver.findElement(confirmAcc).sendKeys(acc);
+    }
 
-        driver.findElement(this.amount).clear();
-        driver.findElement(this.amount).sendKeys(amountValue);
+    public void selectFromAccount(int fromAccount) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement dropdown = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(fromAccountDropdown)
+        );
+        Select select = new Select(dropdown);
+        wait.until(driver1 -> select.getOptions().size() > fromAccount);
+        select.selectByIndex(fromAccount);
+    }
+    public void enterAmount(String amt) {
+        WebElement amountField = driver.findElement(amount);
+        amountField.clear();
+        amountField.sendKeys(amt);
     }
 
     public void sendPayment() {
-        driver.findElement(clickSend).click();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement clickOnSendButton = wait.until(
+                ExpectedConditions.elementToBeClickable(clickSend)
+        );
+        clickOnSendButton.click();
     }
 
     public String getConfirmationMessage() {
-        return driver.findElement(successMessage).getText();
-    }
-    public String getErrorMessage() {
-        try {
-            WebElement errorElem = driver.findElement(errorMessage);
-            return errorElem.isDisplayed() ? errorElem.getText() : "";
-        } catch (Exception e) {
-            return "";
-        }
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement Msg = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(successMessage)
+        );
+        return Msg.getText();
     }
 }

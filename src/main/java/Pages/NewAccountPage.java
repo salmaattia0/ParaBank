@@ -22,7 +22,6 @@ public class NewAccountPage {
     private By successMsg = By.xpath("//h1[text()='Account Opened!']");
     private By accountsOverviewLink = By.xpath("//a[text()='Accounts Overview']");
     private By accountNumberLink = By.xpath("//a[contains(@href, 'activity.htm?id=')]");
-    private By accountTypeValue = By.id("accountType");
     private By balanceValue = By.id("balance");
     public NewAccountPage(WebDriver driver) {
         this.driver = driver;

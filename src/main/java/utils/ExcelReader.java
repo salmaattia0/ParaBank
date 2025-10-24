@@ -17,28 +17,21 @@ public class ExcelReader {
     private static Object[][] readExcelData() {
         Object[][] data = new Object[0][0];
 
-        try {
-            FileInputStream fileInputStream = new FileInputStream(new File(BILL_PAY_FILE));
-            XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
-            Sheet sheet = workbook.getSheet(SHEET_NAME);
+        try (FileInputStream fileInputStream = new FileInputStream(new File(BILL_PAY_FILE));
+             XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream)) {
 
+            Sheet sheet = workbook.getSheet(SHEET_NAME);
             if (sheet == null) return data;
 
             int rowCount = sheet.getPhysicalNumberOfRows();
-            int colCount = sheet.getRow(0).getPhysicalNumberOfCells();
-
-            data = new Object[rowCount - 1][colCount];
             DataFormatter formatter = new DataFormatter();
+
+            data = new Object[rowCount - 1][1]; // عمود واحد فقط (Amount)
 
             for (int i = 1; i < rowCount; i++) {
                 Row row = sheet.getRow(i);
-                for (int j = 0; j < colCount; j++) {
-                    data[i - 1][j] = formatter.formatCellValue(row.getCell(j));
-                }
+                data[i - 1][0] = formatter.formatCellValue(row.getCell(0));
             }
-
-            workbook.close();
-            fileInputStream.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -46,6 +39,7 @@ public class ExcelReader {
 
         return data;
     }
+
     @DataProvider(name = "billPayData")
     public static Object[][] billPayDataProvider() {
         return readExcelData();
